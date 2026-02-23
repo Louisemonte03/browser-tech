@@ -1,0 +1,179 @@
+/* custom properties */
+
+:root {
+  /* De iconische basiskleuren */
+  --ns-geel: #ffc917;
+  --ns-blauw: #003082;
+  --ns-lichtblauw: #00308210;
+
+  /* Functionele kleuren (voor validatie en feedback) */
+  --ns-groen-succes: #217c20;
+  --ns-rood-fout: #d0021b;
+
+  /* Neutrale tinten voor formulieren */
+  --ns-wit: #ffffff;
+  --ns-grijs-licht: #f2f2f2;
+  --ns-grijs-licht-blauw: #bfc9da;
+  --ns-grijs-midden: #999999;
+  --ns-zwart: #333333;
+
+  /* border radius */
+  --radius-border: 4px;
+  --radius-background-border: 10px;
+
+  /* blauwe button styling */
+  --background-color-blue: rgba(0, 101, 219, 1);
+  --background-color-dark-blue: rgba(0, 77, 166, 1);
+
+  /* rode waarschuwings styling */
+  --background-color-red: rgb(211, 10, 10);
+
+  /* font sizes */
+  --ns-font-size-xs: 0.75rem;
+  --ns-font-size-sm: 0.875rem;
+  --ns-font-size-base: 1rem;
+  --ns-font-size-md: 1.125rem;
+  --ns-font-size-lg: 1.5rem;
+  --ns-font-size-xl: 2rem;
+  --ns-font-size-xxl: 2.5rem;
+
+  /* font weight */
+  --ns-font-weight-regular: 400;
+  --ns-font-weight-medium: 600;
+  --ns-font-weight-bold: 700;
+}
+
+
+
+/* Basis stijling */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+/* button */
+
+.submit-button button {
+  background-color: var(--background-color-blue);
+  color: var(--ns-wit);
+  border: none;
+  border-radius: var(--radius-border);
+  padding: 8px 16px;
+  box-shadow: inset 0 -0.125rem 0 #004ba0;
+}
+
+/* Basis stijling */
+
+header .informatie-schoolproject {
+  background-color: var(--background-color-red);
+  color: var(--ns-wit);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  padding: 2px;
+}
+
+header .intro {
+  background-color: var(--ns-geel);
+  padding: 40px 50px 200px 50px;
+  color: var(--ns-blauw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+h1 {
+   font-size: var(--ns-font-size-xl);
+}
+
+header .intro h1 {
+  padding: 0%;
+  margin: 0;
+}
+
+main {
+  padding: 0 20px;
+  background-color: var(--ns-grijs-licht);
+}
+
+form {
+  background-color: var(--ns-wit);
+  position: relative;
+  top: -150px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: var(--radius-background-border);
+}
+
+
+label {
+font-size: var(--ns-font-size-md);
+  margin-top: 30px;
+  color: var(--ns-blauw);
+font-weight: var(--ns-font-weight-bold);
+}
+
+
+/* hier komt de progressive disclosure*/
+
+.conditional-content {
+  display: none;
+}
+
+.trigger:checked ~ .conditional-content {
+  display: block;
+}
+
+/* stijling van alles */
+
+form legend {
+  color: #003082;
+  border: none;
+font-size: var(--ns-font-size-lg);
+padding-top: 40px;
+
+}
+
+fieldset {
+  border: none;
+  padding: 30px;
+  margin: 10px 0;
+}
+
+/* stijling van input */
+
+.fs-1a div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fs-1a input {
+  height: 50px;
+  border-radius: var(--radius-border);
+  border: var(--ns-grijs-licht-blauw) solid 2px;
+}
+
+legend {
+  font-size: var(--font-size-large);
+}
+
+input::placeholder {
+  font-size: var(--font-size-small);
+  color: var(--ns-grijs-midden);
+  padding-left: 10px;
+}
+
+.radio-group .selectie {
+  display: flex;
+  flex-direction: column;
+  border: 20px solid;
+}
+

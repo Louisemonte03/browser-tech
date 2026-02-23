@@ -2,299 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=
-    , initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-
     <header>
-      <div class="warning-school-project">
-      <img src="images/warning-2-svgrepo-com.svg" alt="">
-<h1>Dit is een schoolproject
-</h1>
-</div>
-     <p>Vul hier de persoonlijke gegevens in van de persoon voor wie u aangifte doet.</p>
-        </header>
+      <section class="informatie-schoolproject">
+        Deze form is gemaakt voor een school opdracht
+      </section>
+      <section class="intro">
+        <h1>Aangifte Erfbelasting</h1>
+      </section>
+    </header>
+
     <main>
-
-    <form action="">
-   <fieldset class="fs-1a">
-          <legend><img src="images/profile-circle-svgrepo-com-2.svg" alt=""> 
-            Persoonlijke gegevens</legend>
-
+      <form action="">
+        <fieldset class="fs-1a">
+          <legend>Gegevens overledene</legend>
           <div>
-            <label for="voorletters">Voorletters *</label>
-            <input
-              type="text" 
-              id="voorletters"
-              name="voorletters"
-              placeholder="Bijv. A.B."
-              required
-            />
+            <label for="voorletters"> Voorletters</label>
+            <input type="text" id="tussenvoegsel" placeholder="Bijv. van de" />
           </div>
-
           <div>
-            <label for="tussenvoegsel">Tussenvoegsel</label>
-            <input
-              type="text"
-              id="tussenvoegsel"
-              name="tussenvoegsel"
-              placeholder="Bijv. van de"
-            />
+            <label for="tussenvoegsel"> Tussenvoegsel</label>
+            <input type="text" id="tussenvoegsel" placeholder="Bijv. van de" />
           </div>
-
           <div>
-            <label for="achternaam">Achternaam *</label>
-            <input
-              type="text"
-              id="achternaam"
-              name="achternaam"
-              placeholder="Achternaam"
-              required
-            />
+            <label for="achternaam"> Achternaam</label>
+            <input type="text" id="achternaam" placeholder="Achternaam" />
           </div>
-
           <div>
-            <label for="bsn">Burgerservicenummer (BSN) *</label>
-            <input
-              type="text"
-              id="bsn"
-              name="bsn"
-              placeholder="123.456.789"
-              required
-            />
-          </div>
-
-          <div>
-            <label for="datum_overlijden">Datum van overlijden *</label>
-            <input
-              type="date"
-              id="datum_overlijden"
-              name="datum_overlijden"
-              required
-            />
+            <label for="datum_overlijden"> Datum van overlijden</label>
+            <input type="date" id="datum_overlijden" />
           </div>
         </fieldset>
-
-<fieldset class="fs-1b">
-  <legend> <img src="images/heart-svgrepo-com-2.svg" alt=""> Burgerlijke staat</legend>
-
-  <fieldset class="shown" id="radio-btn-design">
-    <legend>
-      <h3>
-        Was de overledene getrouwd of had de overledene een geregistreerde
-        partner op het moment van overlijden?
-      </h3>
-      <div class="radio-group">
-        <div>
-          <input type="radio" name="getrouwd" id="getrouwd_ja" value="ja" />
-          <label for="getrouwd_ja">Ja</label>
-        </div>
-        <div>
-          <input type="radio" name="getrouwd" id="getrouwd_nee" value="nee" />
-          <label for="getrouwd_nee">Nee</label>
-        </div>
-      </div>
-    </legend>
-  </fieldset>
-
-  <fieldset id="radio-btn-design">
-    <legend>
-      <h3>
-        Hadden de overledene en diens echtgenoot of geregistreerde partner
-        huwelijkse of partnerschapsvoorwaarden laten vastleggen in een
-        notariële akte?
-      </h3>
-      <div class="radio-group">
-        <div>
-          <input type="radio" name="huwelijkse_voorwaarden" id="huwelijkse_voorwaarden_ja" value="ja" />
-          <label for="huwelijkse_voorwaarden_ja">Ja</label>
-        </div>
-        <div>
-          <input type="radio" name="huwelijkse_voorwaarden" id="huwelijkse_voorwaarden_nee" value="nee" />
-          <label for="huwelijkse_voorwaarden_nee">Nee</label>
-        </div>
-      </div>
-    </legend>
-  </fieldset>
-
-  <fieldset id="radio-btn-design">
-    <legend>
-      <h3>
-        Hadden de overledene en diens partner een finaal verrekenbeding?
-      </h3>
-      <div class="radio-group">
-        <div>
-          <input type="radio" name="finaal_verrekenbeding" id="finaal_verrekenbeding_ja" value="ja" />
-          <label for="finaal_verrekenbeding_ja">Ja</label>
-        </div>
-        <div>
-          <input type="radio" name="finaal_verrekenbeding" id="finaal_verrekenbeding_nee" value="nee" />
-          <label for="finaal_verrekenbeding_nee">Nee</label>
-        </div>
-      </div>
-    </legend>
-  </fieldset>
-
-  <fieldset>
-    <div>
-      <label for="datum_huwelijkse_voorwaarden">Datum huwelijkse of partnerschapsvoorwaarden</label>
-      <input type="date" id="datum_huwelijkse_voorwaarden" name="datum_huwelijkse_voorwaarden" />
-    </div>
-  </fieldset>
-</fieldset>
-
-      <!-- dit gedeelte gaat over de kinderen  -->
-      <fieldset class="fs-1c">
-        <legend>1C. Kinderen</legend>
-
-        <fieldset class="shown" id="radio-btn-design">
-          <h3>Had de overledene kinderen?</h3>
-          <div>
-            <input type="radio" name="kinderen" id="kinderen_ja" value="ja" />
-            <label for="kinderen_ja">Ja</label>
-          </div>
-          <div>
-            <input type="radio" name="kinderen" id="kinderen_nee" value="nee" />
-            <label for="kinderen_nee">Nee</label>
-          </div>
-        </fieldset>
-
-        <fieldset> 
-          <h3 >
-            Is één van deze kinderen eerder overleden dan de overledene voor wie
-            u nu aangifte doet?
-          </h3>
-          <div class="radio-group">
-            <input
-              type="radio"
-              name="kind_eerder_overleden"
-              id="kind_eerder_overleden_ja"
-              value="ja"
-            />
-            <label for="kind_eerder_overleden_ja">Ja</label>
-          </div>
-          <div class="radio-group">
-            <input
-              type="radio"
-              name="kind_eerder_overleden"
-              id="kind_eerder_overleden_nee"
-              value="nee"
-            />
-            <label for="kind_eerder_overleden_nee">Nee</label>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <h3>Had dit overleden kind zelf kinderen?</h3>
-          <div class="radio-group">
-            <input
-              type="radio"
-              name="kind_had_kinderen"
-              id="kind_had_kinderen_ja"
-              value="ja"
-            />
-            <label for="kind_had_kinderen_ja">Ja</label>
-          </div>
-          <div class="radio-group">
-            <input
-              type="radio"
-              name="kind_had_kinderen"
-              id="kind_had_kinderen_nee"
-              value="nee"
-            />
-            <label for="kind_had_kinderen_nee">Nee</label>
-          </div>
-        </fieldset>
-      </fieldset>
-
-      <!-- dit gedeelte gaat over 1d -->
-      <fieldset class="fs-1d">
-        <legend>1D. Testament</legend>
-
-        <fieldset class="shown">
-          <h3>Had de overledene een testament?</h3>
-          <div>
-            <input type="radio" name="testament" id="testament_ja" value="ja" />
-            <label for="testament_ja">Ja</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              name="testament"
-              id="testament_nee"
-              value="nee"
-            />
-            <label for="testament_nee">Nee</label>
-          </div>
-        </fieldset>
-        <fieldset>
-        <div>
-                    <label for="protocolnummer">Protocolnummer notaris</label>
-          <input type="number" id="protocolnummer" name="protocolnummer" />
-        </div>
-
-
- <div>
-             <label for="notaris_voorletters">Voorletters notaris *</label>
-          <input
-            type="text"
-            id="notaris_voorletters"
-            name="notaris_voorletters"
-            placeholder="Bijv. A.B."
-            required
-          />
- </div>
-
-<div>
-              <label for="notaris_tussenvoegsel">Tussenvoegsel notaris</label>
-          <input
-            type="text"
-            id="notaris_tussenvoegsel"
-            name="notaris_tussenvoegsel"
-            placeholder="Bijv. van de"
-          />
-</div>
-
-<div>
-              <label for="notaris_achternaam">Achternaam notaris *</label>
-          <input
-            type="text"
-            id="notaris_achternaam"
-            name="notaris_achternaam"
-            placeholder="Achternaam"
-            required
-          />
-</div>
-
-<div>
-              <label for="notaris_vestigingsplaats">Vestigingsplaats notaris</label>
-          <input
-            type="text"
-            id="notaris_vestigingsplaats"
-            name="notaris_vestigingsplaats"
-            placeholder="Bijv. Amsterdam"
-          />
-</div>
-
-
-<div>
-              <label for="datum_testament"
-            >Datum van het testament of van de laatste wijziging</label
-          >
-          <input type="date" id="datum_testament" name="datum_testament" />
-        </div>
-    </div>
-
-    </fieldset>
-
-      </fieldset>
-    </form>
-        </main>
+      </form>
+    </main>
   </body>
 </html>
