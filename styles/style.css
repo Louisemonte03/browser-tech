@@ -1,7 +1,8 @@
-/* custom properties */
-
+/* ==========================================================================
+   1. CUSTOM PROPERTIES (Kleuren & Typografie)
+   ========================================================================== */
 :root {
-  /* De iconische basiskleuren */
+  /* De iconische NS basiskleuren */
   --ns-geel: #ffc917;
   --ns-blauw: #003082;
   --ns-lichtblauw: #00308210;
@@ -10,71 +11,67 @@
   --ns-groen-succes: #217c20;
   --ns-rood-fout: #d0021b;
 
-  /* Neutrale tinten voor formulieren */
+  /* Neutrale tinten */
   --ns-wit: #ffffff;
   --ns-grijs-licht: #f2f2f2;
   --ns-grijs-licht-blauw: #bfc9da;
   --ns-grijs-midden: #999999;
   --ns-zwart: #333333;
 
-  /* border radius */
+  /* Button & Alert kleuren */
+  --btn-blauw: rgba(0, 101, 219, 1);
+  --btn-blauw-donker: rgba(0, 77, 166, 1);
+  --alert-rood: rgb(211, 10, 10);
+
+  /* Border radius */
   --radius-border: 4px;
   --radius-background-border: 10px;
 
-  /* blauwe button styling */
-  --background-color-blue: rgba(0, 101, 219, 1);
-  --background-color-dark-blue: rgba(0, 77, 166, 1);
+  /* Font sizes (in pixels zoals gevraagd) */
+  --ns-font-size-xs: 12px;
+  --ns-font-size-sm: 14px;
+  --ns-font-size-base: 16px;
+  --ns-font-size-md: 18px;
+  --ns-font-size-lg: 24px;
+  --ns-font-size-xl: 32px;
+  --ns-font-size-xxl: 40px;
 
-  /* rode waarschuwings styling */
-  --background-color-red: rgb(211, 10, 10);
-
-  /* font sizes */
-  --ns-font-size-xs: 0.75rem;
-  --ns-font-size-sm: 0.875rem;
-  --ns-font-size-base: 1rem;
-  --ns-font-size-md: 1.125rem;
-  --ns-font-size-lg: 1.5rem;
-  --ns-font-size-xl: 2rem;
-  --ns-font-size-xxl: 2.5rem;
-
-  /* font weight */
+  /* Font weights */
   --ns-font-weight-regular: 400;
-  --ns-font-weight-medium: 600;
   --ns-font-weight-bold: 700;
 }
 
+/* ==========================================================================
+   2. BASIS STYLING
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+}
 
-
-/* Basis stijling */
 html {
   scroll-behavior: smooth;
 }
+
 body {
-  font-family: sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-}
-/* button */
-
-.submit-button button {
-  background-color: var(--background-color-blue);
-  color: var(--ns-wit);
-  border: none;
-  border-radius: var(--radius-border);
-  padding: 8px 16px;
-  box-shadow: inset 0 -0.125rem 0 #004ba0;
+  background-color: var(--ns-grijs-licht);
+  color: var(--ns-zwart);
+  line-height: 1.5;
 }
 
-/* Basis stijling */
-
+/* ==========================================================================
+   3. HEADER & NAVIGATIE
+   ========================================================================== */
 header .informatie-schoolproject {
-  background-color: var(--background-color-red);
+  background-color: var(--alert-rood);
   color: var(--ns-wit);
-  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 13px;
-  padding: 2px;
+  font-size: var(--ns-font-size-xs);
+  padding: 5px;
+  font-weight: var(--ns-font-weight-bold);
 }
 
 header .intro {
@@ -85,21 +82,20 @@ header .intro {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: center;
-}
-
-h1 {
-   font-size: var(--ns-font-size-xl);
 }
 
 header .intro h1 {
-  padding: 0%;
+  font-size: var(--ns-font-size-xxl);
   margin: 0;
 }
 
+/* ==========================================================================
+   4. FORMULIER LAYOUT 
+   ========================================================================== */
 main {
   padding: 0 20px;
-  background-color: var(--ns-grijs-licht);
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 form {
@@ -110,70 +106,147 @@ form {
   flex-direction: column;
   gap: 20px;
   border-radius: var(--radius-background-border);
+  padding: 40px;
 }
 
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+/* ==========================================================================
+   5. VELDBENNAMING
+   ========================================================================== */
+legend {
+  color: var(--ns-blauw);
+  font-size: var(--ns-font-size-xl);
+  font-weight: var(--ns-font-weight-bold);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ns-geel);
+  margin-bottom: 25px;
+}
 
 label {
-font-size: var(--ns-font-size-md);
-  margin-top: 30px;
+  display: block;
+  font-size: var(--ns-font-size-md);
   color: var(--ns-blauw);
-font-weight: var(--ns-font-weight-bold);
+  font-weight: var(--ns-font-weight-bold);
+  margin-bottom: 8px;
+  margin-top: 20px;
 }
 
+h2 {
+  color: var(--ns-blauw);
+  font-weight: var(--ns-font-weight-regular);
+  font-size: var(--ns-font-size-md);
+  margin-bottom: 20px;
+}
 
-/* hier komt de progressive disclosure*/
+/* ==========================================================================
+   6. INPUTS & SELECTORS
+   ========================================================================== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  height: 50px;
+  padding: 0 15px;
+  border-radius: var(--radius-border);
+  border: 2px solid var(--ns-grijs-licht-blauw);
+  font-size: var(--ns-font-size-base);
+  color: var(--ns-zwart);
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+  outline: none;
+  border-color: var(--ns-blauw);
+}
+
+input::placeholder {
+  font-size: var(--ns-font-size-sm);
+  color: var(--ns-grijs-midden);
+}
+
+.gesloten-vragen label {
+  margin: 0;
+  padding: 15px 0px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: var(--ns-font-weight-regular);
+}
+
+/* ==========================================================================
+   7. PROGRESSIVE DISCLOSURE 
+   ========================================================================== */
 
 .conditional-content {
   display: none;
 }
 
-.trigger:checked ~ .conditional-content {
+.gesloten-vragen:has(.trigger:checked) > .conditional-content {
   display: block;
 }
 
-/* stijling van alles */
-
-form legend {
-  color: #003082;
-  border: none;
-font-size: var(--ns-font-size-lg);
-padding-top: 40px;
-
+.conditional-content:has(.trigger:checked) > .conditional-content {
+  display: block;
 }
 
-fieldset {
-  border: none;
-  padding: 30px;
-  margin: 10px 0;
-}
-
-/* stijling van input */
-
-.fs-1a div {
+/* De box om de input en het label */
+.answer-option {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.fs-1a input {
-  height: 50px;
+  align-items: center;
+  border: 2px solid var(--ns-grijs-licht-blauw);
   border-radius: var(--radius-border);
-  border: var(--ns-grijs-licht-blauw) solid 2px;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
-legend {
-  font-size: var(--font-size-large);
+/* Hover effect */
+.answer-option:hover {
+  background-color: var(--ns-lichtblauw);
 }
 
-input::placeholder {
-  font-size: var(--font-size-small);
-  color: var(--ns-grijs-midden);
-  padding-left: 10px;
+/* De blauwe border als de radiobutton gecheckt is */
+.answer-option:has(input:checked) {
+  border-color: var(--ns-blauw);
+  background-color: var(--ns-lichtblauw);
 }
 
-.radio-group .selectie {
-  display: flex;
-  flex-direction: column;
-  border: 20px solid;
+/* Radio button styling */
+.answer-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+  accent-color: var(--ns-blauw);
 }
 
+/* Label vult de rest van de box */
+.answer-option label {
+  width: 100%;
+  cursor: pointer;
+  font-weight: var(--ns-font-weight-regular);
+}
+
+.submit-button button {
+  background-color: var(--btn-blauw);
+  color: var(--ns-wit);
+  border: none;
+  border-radius: var(--radius-border);
+  padding: 12px 24px;
+  font-weight: var(--ns-font-weight-bold);
+  cursor: pointer;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s;
+}
+
+.submit-button button:hover {
+  background-color: var(--btn-blauw-donker);
+}

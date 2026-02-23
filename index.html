@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Aangifte Erfbelasting - Progressive Disclosure</title>
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
@@ -15,28 +15,212 @@
         <h1>Aangifte Erfbelasting</h1>
       </section>
     </header>
-
     <main>
       <form action="">
         <fieldset class="fs-1a">
           <legend>Gegevens overledene</legend>
-          <div>
-            <label for="voorletters"> Voorletters</label>
-            <input type="text" id="tussenvoegsel" placeholder="Bijv. van de" />
+          <div class="form-group">
+            <label for="voorletters">Voorletters</label>
+            <input type="text" id="voorletters" placeholder="Bijv. J.A." />
           </div>
-          <div>
-            <label for="tussenvoegsel"> Tussenvoegsel</label>
-            <input type="text" id="tussenvoegsel" placeholder="Bijv. van de" />
-          </div>
-          <div>
-            <label for="achternaam"> Achternaam</label>
+          <div class="form-group">
+            <label for="achternaam">Achternaam</label>
             <input type="text" id="achternaam" placeholder="Achternaam" />
           </div>
-          <div>
-            <label for="datum_overlijden"> Datum van overlijden</label>
+          <div class="form-group">
+            <label for="datum_overlijden">Datum van overlijden</label>
             <input type="date" id="datum_overlijden" />
           </div>
         </fieldset>
+
+        <fieldset class="fs-1b">
+          <legend>Burgerlijke staat overledene</legend>
+          <div class="gesloten-vragen">
+            <h2>
+              Was de overledene getrouwd of had de overledene een partner?
+            </h2>
+            <div class="answer-option">
+              <input
+                type="radio"
+                name="optie1"
+                id="partner-ja"
+                value="ja"
+                class="trigger"
+              />
+              <label for="partner-ja">Ja</label>
+            </div>
+            <div class="answer-option">
+              <input type="radio" name="optie1" id="partner-nee" value="nee" />
+              <label for="partner-nee">Nee</label>
+            </div>
+
+            <div class="conditional-content">
+              <h2>Hadden zij huwelijkse- of partnerschapsvoorwaarden?</h2>
+              <div class="answer-option">
+                <input
+                  type="radio"
+                  name="optie2"
+                  id="voorwaarden-ja"
+                  value="ja"
+                  class="trigger"
+                />
+                <label for="voorwaarden-ja">Ja</label>
+              </div>
+              <div class="answer-option">
+                <input
+                  type="radio"
+                  name="optie2"
+                  id="voorwaarden-nee"
+                  value="nee"
+                />
+                <label for="voorwaarden-nee">Nee</label>
+              </div>
+
+              <div class="conditional-content">
+                <h2>Hadden zij een finaal verrekenbeding?</h2>
+                <div class="answer-option">
+                  <input
+                    type="radio"
+                    name="optie3"
+                    id="verreken-ja"
+                    value="ja"
+                    class="trigger"
+                  />
+                  <label for="verreken-ja">Ja</label>
+                </div>
+                <div class="answer-option">
+                  <input
+                    type="radio"
+                    name="optie3"
+                    id="verreken-nee"
+                    value="nee"
+                    class="trigger"
+                  />
+                  <label for="verreken-nee">Nee</label>
+                </div>
+                <div class="conditional-content">
+                  <label for="datum_akten">Datum van voorwaarden</label>
+                  <input type="date" id="datum_akten" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs-1c">
+          <legend>Kinderen overledene</legend>
+          <div class="gesloten-vragen">
+            <h2>Had de overledene kinderen?</h2>
+            <div class="answer-option">
+              <input
+                type="radio"
+                name="optie4"
+                id="kinderen-ja"
+                value="ja"
+                class="trigger"
+              />
+              <label for="kinderen-ja">Ja</label>
+            </div>
+            <div class="answer-option">
+              <input type="radio" name="optie4" id="kinderen-nee" value="nee" />
+              <label for="kinderen-nee">Nee</label>
+            </div>
+
+            <div class="conditional-content">
+              <h2>Is één van deze kinderen eerder overleden?</h2>
+              <div class="answer-option">
+                <input
+                  type="radio"
+                  name="optie5"
+                  id="kind-ovl-ja"
+                  value="ja"
+                  class="trigger"
+                />
+                <label for="kind-ovl-ja">Ja</label>
+              </div>
+              <div class="answer-option">
+                <input
+                  type="radio"
+                  name="optie5"
+                  id="kind-ovl-nee"
+                  value="nee"
+                />
+                <label for="kind-ovl-nee">Nee</label>
+              </div>
+
+              <div class="conditional-content">
+                <h2>Had dit overleden kind zelf kinderen?</h2>
+                <div class="answer-option">
+                  <input
+                    type="radio"
+                    name="optie6"
+                    id="kleinkind-ja"
+                    value="ja"
+                  />
+                  <label for="kleinkind-ja">Ja</label>
+                </div>
+                <div class="answer-option">
+                  <input
+                    type="radio"
+                    name="optie6"
+                    id="kleinkind-nee"
+                    value="nee"
+                  />
+                  <label for="kleinkind-nee">Nee</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs-1d">
+          <legend>Testament</legend>
+          <div class="gesloten-vragen">
+            <h2>Had de overledene een testament?</h2>
+            <div class="answer-option">
+              <input
+                type="radio"
+                name="optie7"
+                id="testament-ja"
+                value="ja"
+                class="trigger"
+              />
+              <label for="testament-ja">Ja</label>
+            </div>
+            <div class="answer-option">
+              <input
+                type="radio"
+                name="optie7"
+                id="testament-nee"
+                value="nee"
+              />
+              <label for="testament-nee">Nee</label>
+            </div>
+
+            <div class="conditional-content">
+              <div class="form-group">
+                <label for="not-prot">Protocolnummer</label
+                ><input type="number" id="not-prot" />
+              </div>
+              <div class="form-group">
+                <label for="not-naam">Naam notaris</label
+                ><input type="text" id="not-naam" />
+              </div>
+              <div class="form-group">
+                <label for="not-stad">Vestigingsplaats</label
+                ><input type="text" id="not-stad" />
+              </div>
+              <div class="form-group">
+                <label for="test-datum">Datum testament</label
+                ><input type="date" id="test-datum" />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <section class="submit-button">
+          <button type="submit">Volgende</button>
+        </section>
       </form>
     </main>
   </body>
