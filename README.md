@@ -17,6 +17,18 @@ Ontwerp en bouw een invulformulier voor de Aangifte Erfbelasting (Belastingdiens
 - **Wat heb ik geleerd?** Ik heb geleerd hoe het structuur opzetten voor een goeie invul veld werkt. Welke benamingen ik moet geven vor de juiste inputs.
 - **Wat ga ik morgen doen** Morgen ga ik me focussen op de Progressive disclosure. Wat laat ik de gebruikers zien? Laat ik alle vragen zien? Laat ik de vragen uitklappen als de gebruiker heeft gekozen voor een optie. Of laat ik de vragen inklappen als er is gekozen voor een optie.
 
+Dit gaat de progressive disclosure worden 
+### Voorbeeld van de flow
+
+Stel de overledene was alleenstaand zonder kinderen, maar mét een testament. De gebruiker ziet dan alleen:
+
+- **1a:** Naam/BSN (Ingevuld)
+- **1b:** Getrouwd? -> **Nee** (Rest van 1b blijft verborgen)
+- **1c:** Kinderen? -> **Nee** (Rest van 1c blijft verborgen)
+- **1d:** Testament? -> **Ja** -> *Nu klappen de notarisgegevens pas uit.*
+
+
+
   ## **Dag 2 dinsdag**
 
 - **Wat heb ik gedaan?** Ik heb de progressive disclosure toegevoegd. Met behulp van victor. Dat waren veel codes. Hij lege me uit dat ik moest kijken of de opties gechecked waren. Dat deed je doormiddel van dit stukje code. Met display block liet je ze dan zien. Ook ben ik vandaag aan de slag geweest met de custom properties en de stijling. Ik heb dus de dag er voor onderzoek gedaan naar de NS huistijl.
@@ -24,4 +36,5 @@ Ontwerp en bouw een invulformulier voor de Aangifte Erfbelasting (Belastingdiens
   ![De stijl van NS die ik in mijn custom properties heb toegevoegd](/images/readme/custom-properties.png)
 - **Hoe lang duurde het ?** Ik was hier 2 uurtjes mee bezig. Met behulp van Victor.
 - **Wat heb ik geleerd?** Ik heb geleerd hoe het structuur opzetten voor een goeie invul veld werkt. Welke benamingen ik moet geven vor de juiste inputs. Voor de rest van de dag was ik bezig met de stijling voor de website.
+
 - **Wat ga ik volgende week doen** Volgebde week wil ik me gaan richten op validatie als iets niet is ingevuld. En de rest van de stijling.
