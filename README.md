@@ -1,6 +1,5 @@
-# sprint-01
+# Browser Tech
 
-# **Project sprint **
 # **LET OP: Dit is een schoolproject **
 
 ## **Project Overview**
