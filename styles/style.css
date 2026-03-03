@@ -27,7 +27,7 @@
   --radius-border: 4px;
   --radius-background-border: 10px;
 
-  /* Font sizes (in pixels zoals gevraagd) */
+  /* Font sizes */
   --ns-font-size-xs: 12px;
   --ns-font-size-sm: 14px;
   --ns-font-size-base: 16px;
@@ -131,7 +131,7 @@ label {
   display: block;
   font-size: var(--ns-font-size-md);
   color: var(--ns-blauw);
-  font-weight: var(--ns-font-weight-bold);
+  /* font-weight: var(--ns-font-weight-bold); */
   margin-bottom: 8px;
   margin-top: 20px;
 }
@@ -154,7 +154,8 @@ h2 {
 
 input[type="text"],
 input[type="number"],
-input[type="date"] {
+input[type="date"],
+input[type="email"] {
   height: 50px;
   padding: 0 15px;
   border-radius: var(--radius-border);
@@ -235,6 +236,10 @@ input::placeholder {
   font-weight: var(--ns-font-weight-regular);
 }
 
+form section {
+  display: flex;
+  justify-content: end;
+}
 .submit-button button {
   background-color: var(--btn-blauw);
   color: var(--ns-wit);
@@ -249,4 +254,46 @@ input::placeholder {
 
 .submit-button button:hover {
   background-color: var(--btn-blauw-donker);
+}
+
+/* test validatie */
+
+.form-group p {
+  gap: 10px;
+  align-items: center;
+  color: var(--ns-rood-fout);
+  line-height: 0;
+  margin: 10px 0;
+}
+
+/* laat niet gelijk de rode border zien ivm met input valid  + p */
+
+.error-message {
+  display: none;
+}
+
+input:user-invalid {
+  border-color: var(--ns-rood-fout);
+}
+
+input:user-invalid + .error-message {
+  display: block;
+  border-color: var(--ns-rood-fout);
+}
+
+input:user-invalid {
+  animation: shake-horizontal 0.5s ease-in-out 4;
+}
+
+@keyframes shake-horizontal {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
 }

@@ -21,15 +21,92 @@
           <legend>Gegevens overledene</legend>
           <div class="form-group">
             <label for="voorletters">Voorletters</label>
-            <input type="text" id="voorletters" placeholder="Bijv. J.A." />
+            <input
+              type="text"
+              id="voorletters"
+              placeholder="Bijv. J.A."
+              required
+            />
+            <p class="error-message">
+              <svg
+                width="15px"
+                height="15px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="Warning / Info">
+                  <path
+                    id="Vector"
+                    d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.0498 8V8.1L11.9502 8.1002V8H12.0498Z"
+                    stroke="#D30A0A"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+              </svg>
+              Let op! dit veld is verplicht
+            </p>
+          </div>
+          <div class="form-group">
+            <label for="tussenvoegsel">Tussenvoegsel</label>
+            <input type="text" id="tussenvoegsel" placeholder="Bijv. Van de" />
           </div>
           <div class="form-group">
             <label for="achternaam">Achternaam</label>
-            <input type="text" id="achternaam" placeholder="Achternaam" />
+            <input
+              type="text"
+              id="achternaam"
+              placeholder="Achternaam"
+              required
+            />
+            <p class="error-message">
+              <svg
+                width="15px"
+                height="15px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="Warning / Info">
+                  <path
+                    id="Vector"
+                    d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.0498 8V8.1L11.9502 8.1002V8H12.0498Z"
+                    stroke="#D30A0A"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+              </svg>
+              Let op! dit veld is verplicht
+            </p>
           </div>
           <div class="form-group">
             <label for="datum_overlijden">Datum van overlijden</label>
-            <input type="date" id="datum_overlijden" />
+            <input type="date" id="datum_overlijden" required />
+            <p class="error-message">
+              <svg
+                width="15px"
+                height="15px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="Warning / Info">
+                  <path
+                    id="Vector"
+                    d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.0498 8V8.1L11.9502 8.1002V8H12.0498Z"
+                    stroke="#D30A0A"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+              </svg>
+              Let op! dit veld is verplicht
+            </p>
           </div>
         </fieldset>
 
@@ -200,15 +277,27 @@
             <div class="conditional-content">
               <div class="form-group">
                 <label for="not-prot">Protocolnummer</label
-                ><input type="number" id="not-prot" />
+                ><input
+                  type="text"
+                  pattern="[0-9]{6}"
+                  inputmode="numeric"
+                  maxlength="6"
+                  title="Voer precies 6 cijfers in"
+                />
               </div>
               <div class="form-group">
                 <label for="not-naam">Naam notaris</label
-                ><input type="text" id="not-naam" />
+                ><input type="text" placeholder="Bijv. J.A." />
               </div>
               <div class="form-group">
-                <label for="not-stad">Vestigingsplaats</label
-                ><input type="text" id="not-stad" />
+                <label for="vestigingsplaats">vestigingsplaats</label>
+                <input
+                  type="text"
+                  name="text"
+                  id="vestigingsplaats"
+                  list="gemeente-opties"
+                />
+                <datalist id="gemeente-opties"> </datalist>
               </div>
               <div class="form-group">
                 <label for="test-datum">Datum testament</label
@@ -217,11 +306,12 @@
             </div>
           </div>
         </fieldset>
-
         <section class="submit-button">
           <button type="submit">Volgende</button>
         </section>
       </form>
     </main>
   </body>
+
+  <script src="script.js"></script>
 </html>

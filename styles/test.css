@@ -1,0 +1,18 @@
+
+.error-message {
+  display: none;
+}
+
+input:user-invalid {
+  border: 2px solid red;
+}
+
+
+input:user-invalid + .error-message {
+  display: block;
+  color: red;
+}
+
+input:user-valid {
+  border: 2px solid green;
+}
