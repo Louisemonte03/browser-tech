@@ -1,13 +1,13 @@
 /* ==========================================================================
-   1. CUSTOM PROPERTIES (Kleuren & Typografie)
+   1. AANGEPASTE EIGENSCHAPPEN (Kleuren & Typografie)
    ========================================================================== */
 :root {
-  /* De iconische NS basiskleuren */
+  /* NS basiskleuren */
   --ns-geel: #ffc917;
   --ns-blauw: #003082;
   --ns-lichtblauw: #00308210;
 
-  /* Functionele kleuren (voor validatie en feedback) */
+  /* Functionele kleuren */
   --ns-groen-succes: #217c20;
   --ns-rood-fout: #d0021b;
 
@@ -18,16 +18,16 @@
   --ns-grijs-midden: #999999;
   --ns-zwart: #333333;
 
-  /* Button & Alert kleuren */
-  --btn-blauw: rgba(0, 101, 219, 1);
-  --btn-blauw-donker: rgba(0, 77, 166, 1);
-  --alert-rood: rgb(211, 10, 10);
+  /* Knopkleuren */
+  --knop-blauw: rgba(0, 101, 219, 1);
+  --knop-blauw-donker: rgba(0, 77, 166, 1);
+  --foutmelding-rood: rgb(211, 10, 10);
 
-  /* Border radius */
+  /* Afgeronde hoeken */
   --radius-border: 4px;
   --radius-background-border: 10px;
 
-  /* Font sizes */
+  /* Tekstgroottes */
   --ns-font-size-xs: 12px;
   --ns-font-size-sm: 14px;
   --ns-font-size-base: 16px;
@@ -36,7 +36,7 @@
   --ns-font-size-xl: 32px;
   --ns-font-size-xxl: 40px;
 
-  /* Font weights */
+  /* Tekstgewichten */
   --ns-font-weight-regular: 400;
   --ns-font-weight-bold: 700;
 }
@@ -61,10 +61,10 @@ body {
 }
 
 /* ==========================================================================
-   3. HEADER & NAVIGATIE
+   3. HEADER
    ========================================================================== */
 header .informatie-schoolproject {
-  background-color: var(--alert-rood);
+  background-color: var(--foutmelding-rood);
   color: var(--ns-wit);
   display: flex;
   justify-content: center;
@@ -90,7 +90,7 @@ header .intro h1 {
 }
 
 /* ==========================================================================
-   4. FORMULIER LAYOUT 
+   4. FORMULIER LAYOUT
    ========================================================================== */
 main {
   padding: 0 20px;
@@ -116,7 +116,7 @@ fieldset {
 }
 
 /* ==========================================================================
-   5. VELDBENNAMING
+   5. VELDBENAMING
    ========================================================================== */
 legend {
   color: var(--ns-blauw);
@@ -131,7 +131,6 @@ label {
   display: block;
   font-size: var(--ns-font-size-md);
   color: var(--ns-blauw);
-  /* font-weight: var(--ns-font-weight-bold); */
   margin-bottom: 8px;
   margin-top: 20px;
 }
@@ -144,9 +143,8 @@ h2 {
 }
 
 /* ==========================================================================
-   6. INPUTS & SELECTORS
+   6. INVOERVELDEN
    ========================================================================== */
-
 .form-group {
   display: flex;
   flex-direction: column;
@@ -175,18 +173,9 @@ input::placeholder {
   color: var(--ns-grijs-midden);
 }
 
-.gesloten-vragen label {
-  margin: 0;
-  padding: 15px 0px;
-  width: 100%;
-  cursor: pointer;
-  font-weight: var(--ns-font-weight-regular);
-}
-
 /* ==========================================================================
-   7. PROGRESSIVE DISCLOSURE 
+   7. PROGRESSIEVE ONTHULLING
    ========================================================================== */
-
 .conditional-content {
   display: none;
 }
@@ -199,7 +188,7 @@ input::placeholder {
   display: block;
 }
 
-/* De box om de input en het label */
+/* Antwoordoptie box */
 .answer-option {
   display: flex;
   align-items: center;
@@ -210,18 +199,18 @@ input::placeholder {
   cursor: pointer;
 }
 
-/* Hover effect */
+/* Hovereffect */
 .answer-option:hover {
   background-color: var(--ns-lichtblauw);
 }
 
-/* De blauwe border als de radiobutton gecheckt is */
+/* Blauwe rand bij geselecteerde optie */
 .answer-option:has(input:checked) {
   border-color: var(--ns-blauw);
   background-color: var(--ns-lichtblauw);
 }
 
-/* Radio button styling */
+/* Keuzerondje styling */
 .answer-option input[type="radio"] {
   width: 20px;
   height: 20px;
@@ -232,16 +221,22 @@ input::placeholder {
 /* Label vult de rest van de box */
 .answer-option label {
   width: 100%;
+  margin: 0;
+  padding: 15px 0;
   cursor: pointer;
   font-weight: var(--ns-font-weight-regular);
 }
 
+/* ==========================================================================
+   8. VERZENDKNOP
+   ========================================================================== */
 form section {
   display: flex;
   justify-content: end;
 }
+
 .submit-button button {
-  background-color: var(--btn-blauw);
+  background-color: var(--knop-blauw);
   color: var(--ns-wit);
   border: none;
   border-radius: var(--radius-border);
@@ -253,11 +248,12 @@ form section {
 }
 
 .submit-button button:hover {
-  background-color: var(--btn-blauw-donker);
+  background-color: var(--knop-blauw-donker);
 }
 
-/* test validatie */
-
+/* ==========================================================================
+   9. VALIDATIE
+   ========================================================================== */
 .form-group p {
   gap: 10px;
   align-items: center;
@@ -265,8 +261,6 @@ form section {
   line-height: 0;
   margin: 10px 0;
 }
-
-/* laat niet gelijk de rode border zien ivm met input valid  + p */
 
 .error-message {
   display: none;
@@ -278,14 +272,13 @@ input:user-invalid {
 
 input:user-invalid + .error-message {
   display: block;
-  border-color: var(--ns-rood-fout);
 }
 
 input:user-invalid {
-  animation: shake-horizontal 0.5s ease-in-out 4;
+  animation: schud-horizontaal 0.5s ease-in-out 4;
 }
 
-@keyframes shake-horizontal {
+@keyframes schud-horizontaal {
   0%,
   100% {
     transform: translateX(0);

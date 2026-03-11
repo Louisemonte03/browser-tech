@@ -3,20 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aangifte Erfbelasting - Progressive Disclosure</title>
+    <title>Aangifte Erfbelasting</title>
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
     <header>
       <section class="informatie-schoolproject">
-        Deze form is gemaakt voor een school opdracht
+        Dit formulier is gemaakt voor een schoolopdracht
       </section>
       <section class="intro">
         <h1>Aangifte Erfbelasting</h1>
       </section>
     </header>
     <main>
-      <form action="">
+      <form>
         <fieldset class="fs-1a">
           <legend>Gegevens overledene</legend>
           <div class="form-group">
@@ -46,7 +46,7 @@
                   />
                 </g>
               </svg>
-              Let op! dit veld is verplicht
+              Let op! Dit veld is verplicht
             </p>
           </div>
           <div class="form-group">
@@ -80,7 +80,7 @@
                   />
                 </g>
               </svg>
-              Let op! dit veld is verplicht
+              Let op! Dit veld is verplicht
             </p>
           </div>
           <div class="form-group">
@@ -105,7 +105,7 @@
                   />
                 </g>
               </svg>
-              Let op! dit veld is verplicht
+              Let op! Dit veld is verplicht
             </p>
           </div>
         </fieldset>
@@ -276,9 +276,10 @@
 
             <div class="conditional-content">
               <div class="form-group">
-                <label for="not-prot">Protocolnummer</label
-                ><input
+                <label for="not-prot">Protocolnummer</label>
+                <input
                   type="text"
+                  id="not-prot"
                   pattern="[0-9]{6}"
                   inputmode="numeric"
                   maxlength="6"
@@ -286,32 +287,31 @@
                 />
               </div>
               <div class="form-group">
-                <label for="not-naam">Naam notaris</label
-                ><input type="text" placeholder="Bijv. J.A." />
+                <label for="not-naam">Naam notaris</label>
+                <input type="text" id="not-naam" placeholder="Bijv. J.A." />
               </div>
               <div class="form-group">
-                <label for="vestigingsplaats">vestigingsplaats</label>
+                <label for="vestigingsplaats">Vestigingsplaats</label>
                 <input
                   type="text"
-                  name="text"
                   id="vestigingsplaats"
                   list="gemeente-opties"
                 />
-                <datalist id="gemeente-opties"> </datalist>
+                <datalist id="gemeente-opties"></datalist>
               </div>
               <div class="form-group">
-                <label for="test-datum">Datum testament</label
-                ><input type="date" id="test-datum" />
+                <label for="test-datum">Datum testament</label>
+                <input type="date" id="test-datum" />
               </div>
             </div>
           </div>
         </fieldset>
+
         <section class="submit-button">
           <button type="submit">Volgende</button>
         </section>
       </form>
     </main>
   </body>
-
   <script src="script.js"></script>
 </html>
