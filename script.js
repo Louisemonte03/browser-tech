@@ -29,34 +29,32 @@ datePicker.setAttribute("max", vandaag);
 
 const input = document.getElementById("iban");
 
-// Luister naar klikken op de knoppen
-document.querySelectorAll(".bank-btn").forEach((btn) => {
-  btn.onclick = () => {
-    let val = input.value.replace(/\s/g, "").substring(0, 4) || "NL00";
-    input.value = val + btn.dataset.code;
-    input.dispatchEvent(new Event("input")); // Trigger de spatie-opmaak
-  };
-});
-
-// De "Alles-in-één" opmaak functie
 input.oninput = (e) => {
   let pos = input.selectionStart;
-  // 1. Haal alle spaties weg en maak hoofdletters
   let val = input.value.toUpperCase().replace(/\s/g, "");
+  let clean = "";
 
-  // 2. Blokkeer cijfers op posities 4 t/m 7 (de bankcode)
-  let clean = val
-    .split("")
-    .map((char, i) => (i >= 4 && i <= 7 && /[0-9]/.test(char) ? "" : char))
-    // met dit stuke code kan je niet verder voordat je een bank heb gekozen
-    .join("");
+  for (let i = 0; i < val.length; i++) {
+    let char = val[i];
+    if (i < 2) {
+      // Landcode: Alleen letters
+      if (/[A-Z]/.test(char)) clean += char;
+    } else if (i < 4) {
+      // Controlegetal: Alleen cijfers
+      if (/[0-9]/.test(char)) clean += char;
+    } else if (i < 8) {
+      // Bankcode: Alleen letters
+      if (/[A-Z]/.test(char)) clean += char;
+    } else {
+      // De rest: Alleen cijfers
+      if (/[0-9]/.test(char)) clean += char;
+    }
+  }
 
-  // 3. Voeg spaties toe na elke 4 tekens
   let formatted = clean.match(/.{1,4}/g)?.join(" ") || "";
-
   input.value = formatted;
 
-  // 4. Cursor fix: als we een spatie toevoegen, moet de cursor een plekje opschuiven
+  // Cursor op de juiste plek houden
   if (
     pos > 0 &&
     formatted[pos - 1] === " " &&
@@ -65,3 +63,12 @@ input.oninput = (e) => {
     pos++;
   input.setSelectionRange(pos, pos);
 };
+
+// De bankknoppen triggeren ook deze check
+document.querySelectorAll(".bank-btn").forEach((btn) => {
+  btn.onclick = () => {
+    let prefix = input.value.replace(/\s/g, "").substring(0, 4) || "NL00";
+    input.value = prefix + btn.dataset.code;
+    input.dispatchEvent(new Event("input"));
+  };
+});
