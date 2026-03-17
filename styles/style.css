@@ -273,6 +273,8 @@ input::placeholder {
   display: none;
 }
 
+
+
 input:user-invalid {
   border-color: var(--ns-rood-fout);
 }
@@ -335,8 +337,6 @@ input:user-invalid {
 .info-melding p {
   color: var(--text-info-melding);
 }
-
-
 
 /* test je validatie iban */
 

@@ -24,51 +24,38 @@ datePicker.setAttribute("max", vandaag);
 //
 
 /* ==========================================================================
-   10. IBAN INPUT
+   9. INPUT IBAN
    ========================================================================== */
 
-const input = document.getElementById("iban");
+let ibanInput = document.getElementById("iban");
+ibanInput.addEventListener("input", function (e) {
+  // 1. Haal alle niet-alfanumerieke tekens weg en zet in hoofdletters
 
-input.oninput = (e) => {
-  let pos = input.selectionStart;
-  let val = input.value.toUpperCase().replace(/\s/g, "");
-  let clean = "";
+  let rawValue = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
 
-  for (let i = 0; i < val.length; i++) {
-    let char = val[i];
+  // 3. Pas de logica toe per positie (Type-check)
+  let validatedValue = "";
+  for (let i = 0; i < rawValue.length; i++) {
+    let char = rawValue[i];
     if (i < 2) {
-      // Landcode: Alleen letters
-      if (/[A-Z]/.test(char)) clean += char;
+      // NL
+      if (/[A-Z]/.test(char)) validatedValue += char;
     } else if (i < 4) {
-      // Controlegetal: Alleen cijfers
-      if (/[0-9]/.test(char)) clean += char;
+      // 2 Controlecijfers
+      if (/[0-9]/.test(char)) validatedValue += char;
     } else if (i < 8) {
-      // Bankcode: Alleen letters
-      if (/[A-Z]/.test(char)) clean += char;
+      // 4 Letters van de Bank
+      if (/[A-Z]/.test(char)) validatedValue += char;
     } else {
-      // De rest: Alleen cijfers
-      if (/[0-9]/.test(char)) clean += char;
+      // 10 Cijfers rekeningnummer
+      if (/[0-9]/.test(char)) validatedValue += char;
     }
   }
 
-  let formatted = clean.match(/.{1,4}/g)?.join(" ") || "";
-  input.value = formatted;
+  // 5. Voeg spaties toe om de 4 tekens
+  let formattedValue =
+    validatedValue.match(/.{1,4}/g)?.join(" ") || validatedValue;
 
-  // Cursor op de juiste plek houden
-  if (
-    pos > 0 &&
-    formatted[pos - 1] === " " &&
-    e.inputType !== "deleteContentBackward"
-  )
-    pos++;
-  input.setSelectionRange(pos, pos);
-};
-
-// De bankknoppen triggeren ook deze check
-document.querySelectorAll(".bank-btn").forEach((btn) => {
-  btn.onclick = () => {
-    let prefix = input.value.replace(/\s/g, "").substring(0, 4) || "NL00";
-    input.value = prefix + btn.dataset.code;
-    input.dispatchEvent(new Event("input"));
-  };
+  // 6. Update het veld
+  e.target.value = formattedValue;
 });

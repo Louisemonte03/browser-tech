@@ -312,33 +312,15 @@
 
         <fieldset class="fs-1e">
           <legend>Iban</legend>
-
           <div class="form-group">
             <label for="iban">IBAN</label>
             <input
               type="text"
               id="iban"
-              placeholder="NL00 BANK 0123 4567 89"
+              placeholder="NL00 ABNA 0123 4567 89"
               maxlength="22"
+              autocomplete="off"
             />
-
-            <div
-              class="bank-shortcuts"
-              style="margin-top: 10px; display: flex; gap: 5px"
-            >
-              <button type="button" class="bank-btn" data-code="ASNB">
-                ASNB
-              </button>
-              <button type="button" class="bank-btn" data-code="RABO">
-                RABO
-              </button>
-              <button type="button" class="bank-btn" data-code="INGB">
-                INGB
-              </button>
-              <button type="button" class="bank-btn" data-code="ABNA">
-                ABNA
-              </button>
-            </div>
           </div>
         </fieldset>
         <section class="submit-button">
@@ -347,6 +329,5 @@
       </form>
     </main>
   </body>
-
   <script src="script.js"></script>
 </html>
