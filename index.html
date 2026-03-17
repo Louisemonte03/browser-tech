@@ -102,6 +102,9 @@
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
+                    value="2018-07-22"
+                    min="2018-01-01"
+                    max="2026-03-16"
                   />
                 </g>
               </svg>
@@ -307,11 +310,43 @@
           </div>
         </fieldset>
 
+        <fieldset class="fs-1e">
+          <legend>Iban</legend>
+
+          <div class="form-group">
+            <label for="iban">IBAN</label>
+            <input
+              type="text"
+              id="iban"
+              placeholder="NL00 BANK 0123 4567 89"
+              maxlength="22"
+            />
+
+            <div
+              class="bank-shortcuts"
+              style="margin-top: 10px; display: flex; gap: 5px"
+            >
+              <button type="button" class="bank-btn" data-code="ASNB">
+                ASNB
+              </button>
+              <button type="button" class="bank-btn" data-code="RABO">
+                RABO
+              </button>
+              <button type="button" class="bank-btn" data-code="INGB">
+                INGB
+              </button>
+              <button type="button" class="bank-btn" data-code="ABNA">
+                ABNA
+              </button>
+            </div>
+          </div>
+        </fieldset>
         <section class="submit-button">
           <button type="submit">Volgende</button>
         </section>
       </form>
     </main>
   </body>
+
   <script src="script.js"></script>
 </html>
