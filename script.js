@@ -1,11 +1,12 @@
-let inputVeld = document.getElementById("vestigingsplaats");
+/* ==========================================================================
+  GEMEENTES
+   ========================================================================== */
+
 let dataLijst = document.getElementById("gemeente-opties");
 
-// json bestand inladen
 fetch("gemeentes.json")
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
     data.forEach((gemeente) => {
       const option = document.createElement("option");
       option.value = typeof gemeente === "string" ? gemeente : gemeente.naam;
@@ -13,49 +14,83 @@ fetch("gemeentes.json")
     });
   });
 
-// date picker gaat niet verder in de toekomst
-
-let datePicker = document.getElementById("datum_overlijden");
-let vandaag = new Date().toISOString().split("T")[0];
-// 2. Haal de datum van vandaag op in ISO-formaat (YYYY-MM-DD)
-
-datePicker.setAttribute("max", vandaag);
-
-//
-
 /* ==========================================================================
-   9. INPUT IBAN
+  DATUMPICKER - niet verder dan vandaag
    ========================================================================== */
 
-let ibanInput = document.getElementById("iban");
-ibanInput.addEventListener("input", function (e) {
-  // 1. Haal alle niet-alfanumerieke tekens weg en zet in hoofdletters
+let vandaag = new Date().toISOString().split("T")[0];
+document.getElementById("datum_overlijden").setAttribute("max", vandaag);
 
-  let rawValue = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+/* ==========================================================================
+  IBAN - automatisch opmaken
+   ========================================================================== */
 
-  // 3. Pas de logica toe per positie (Type-check)
-  let validatedValue = "";
-  for (let i = 0; i < rawValue.length; i++) {
-    let char = rawValue[i];
-    if (i < 2) {
-      // NL
-      if (/[A-Z]/.test(char)) validatedValue += char;
-    } else if (i < 4) {
-      // 2 Controlecijfers
-      if (/[0-9]/.test(char)) validatedValue += char;
-    } else if (i < 8) {
-      // 4 Letters van de Bank
-      if (/[A-Z]/.test(char)) validatedValue += char;
-    } else {
-      // 10 Cijfers rekeningnummer
-      if (/[0-9]/.test(char)) validatedValue += char;
-    }
+document.getElementById("iban").addEventListener("input", function (e) {
+  let raw = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+  let result = "";
+  for (let i = 0; i < raw.length; i++) {
+    let c = raw[i];
+    if (i < 2 && /[A-Z]/.test(c)) result += c;
+    else if (i < 4 && /[0-9]/.test(c)) result += c;
+    else if (i < 8 && /[A-Z]/.test(c)) result += c;
+    else if (i >= 8 && /[0-9]/.test(c)) result += c;
   }
+  e.target.value = result.match(/.{1,4}/g)?.join(" ") || result;
+});
 
-  // 5. Voeg spaties toe om de 4 tekens
-  let formattedValue =
-    validatedValue.match(/.{1,4}/g)?.join(" ") || validatedValue;
+/* ==========================================================================
+  VOORLETTERS - automatisch opmaken (ja -> J.A.)
+   ========================================================================== */
 
-  // 6. Update het veld
-  e.target.value = formattedValue;
+["voorletters", "not-naam"].forEach((id) => {
+  document.getElementById(id).addEventListener("blur", function () {
+    const letters = this.value
+      .replace(/[^a-zA-Z]/g, "")
+      .toUpperCase()
+      .split("");
+    this.value = letters.map((l) => l + ".").join("");
+  });
+});
+
+/* ==========================================================================
+  BLOKKEER VERKEERDE TEKENS
+   ========================================================================== */
+
+// Alleen cijfers
+["Bsn", "not-prot"].forEach((id) => {
+  document.getElementById(id).addEventListener("keypress", (e) => {
+    if (!/[0-9]/.test(e.key)) e.preventDefault();
+  });
+});
+
+// Alleen letters
+[
+  "voorletters",
+  "not-naam",
+  "tussenvoegsel",
+  "achternaam",
+  "vestigingsplaats",
+].forEach((id) => {
+  document.getElementById(id).addEventListener("keypress", (e) => {
+    if (!/[A-Za-z.\- ]/.test(e.key)) e.preventDefault();
+  });
+});
+
+/* ==========================================================================
+  PROGRESSIVE DISCLOSURE - verborgen vragen required aan/uitzetten
+   ========================================================================== */
+
+document.querySelectorAll("input.trigger").forEach((trigger) => {
+  trigger.addEventListener("change", () => {
+    const content = trigger
+      .closest(".gesloten-vragen, .conditional-content")
+      ?.querySelector(".conditional-content");
+    if (!content) return;
+    const zichtbaar = trigger.value === "ja";
+    content
+      .querySelectorAll("input[type='radio']:first-of-type")
+      .forEach((radio) => {
+        radio.required = zichtbaar;
+      });
+  });
 });

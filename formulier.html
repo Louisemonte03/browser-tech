@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aangifte Erfbelasting</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <section class="informatie-schoolproject">
+        Dit formulier is gemaakt voor een schoolopdracht
+      </section>
+      <section class="intro">
+        <h1>Aangifte Erfbelasting</h1>
+      </section>
+    </header>
+    <main>
+      <form>
+        <fieldset class="fs-1a">
+          <legend>Gegevens overledene</legend>
+          <div class="form-group">
+            <label for="voorletters">Voorletters</label>
+            <input
+              type="text"
+              id="voorletters"
+              placeholder="Bijv. J.A."
+              pattern="[A-Za-z.]*"
+              required
+            />
+            <p class="error-message">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.0498 8V8.1L11.9502 8.1002V8H12.0498Z"
+                  stroke="#D30A0A"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Vul je voorletters in, bijv. J.A.
+            </p>
+          </div>
+          <div class="form-group">
+            <label for="tussenvoegsel">Tussenvoegsel</label>
+            <input
+              type="text"
+              id="tussenvoegsel"
+              placeholder="Bijv. Van de"
+              pattern="[A-Za-z ]*"
+            />
+          </div>
+          <div class="form-group">
+            <label for="achternaam">Achternaam</label>
+            <input
+              type="text"
+              id="achternaam"
+              placeholder="Achternaam"
+              pattern="[A-Za-z \-]*"
+              required
+            />
+            <p class="error-message">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.0498 8V8.1L11.9502 8.1002V8H12.0498Z"
+                  stroke="#D30A0A"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Vul je achternaam in
+            </p>
+          </div>
+          <div class="form-group">
+            <label for="bsn">BSN overleden</label>
+            <input
+              type="text"
+              id="Bsn"
+              pattern="[0-9]{9}"
+              inputmode="numeric"
+              minlength="9"
+              maxlength="9"
+              placeholder="BSN nummer"
+              title="Voer precies 9 cijfers in"
+              required
+            />
+            <p class="error-message">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.0498 8V8.1L11.9502 8.1002V8H12.0498Z"
+                  stroke="#D30A0A"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Vul precies 9 cijfers in
+            </p>
+          </div>
+          <div class="form-group">
+            <label for="datum_overlijden">Datum van overlijden</label>
+            <input type="date" id="datum_overlijden" required />
+            <p class="error-message">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.0498 8V8.1L11.9502 8.1002V8H12.0498Z"
+                  stroke="#D30A0A"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Vul datum van overlijden in
+            </p>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs-1b">
+          <legend>Burgerlijke staat overledene</legend>
+          <div class="gesloten-vragen">
+            <h2>
+              Was de overledene getrouwd of had de overledene een partner?
+            </h2>
+            <div class="answer-option">
+              <input
+                type="radio"
+                name="optie1"
+                id="partner-ja"
+                value="ja"
+                class="trigger"
+                required
+              />
+              <label for="partner-ja">Ja</label>
+            </div>
+            <div class="answer-option">
+              <input type="radio" name="optie1" id="partner-nee" value="nee" />
+              <label for="partner-nee">Nee</label>
+            </div>
+            <div class="conditional-content">
+              <h2>Hadden zij huwelijkse- of partnerschapsvoorwaarden?</h2>
+              <div class="answer-option">
+                <input
+                  type="radio"
+                  name="optie2"
+                  id="voorwaarden-ja"
+                  value="ja"
+                  class="trigger"
+                />
+                <label for="voorwaarden-ja">Ja</label>
+              </div>
+              <div class="answer-option">
+                <input
+                  type="radio"
+                  name="optie2"
+                  id="voorwaarden-nee"
+                  value="nee"
+                />
+                <label for="voorwaarden-nee">Nee</label>
+              </div>
+              <div class="conditional-content">
+                <h2>Hadden zij een finaal verrekenbeding?</h2>
+                <div class="answer-option">
+                  <input
+                    type="radio"
+                    name="optie3"
+                    id="verreken-ja"
+                    value="ja"
+                    class="trigger"
+                  />
+                  <label for="verreken-ja">Ja</label>
+                </div>
+                <div class="answer-option">
+                  <input
+                    type="radio"
+                    name="optie3"
+                    id="verreken-nee"
+                    value="nee"
+                    class="trigger"
+                  />
+                  <label for="verreken-nee">Nee</label>
+                </div>
+                <div class="conditional-content">
+                  <label for="datum_akten">Datum van voorwaarden</label>
+                  <input type="date" id="datum_akten" />
+                  <p class="error-message">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.0498 8V8.1L11.9502 8.1002V8H12.0498Z"
+                        stroke="#D30A0A"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    Vul datum in van voorwaarden
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs-1c">
+          <legend>Kinderen overledene</legend>
+          <div class="gesloten-vragen">
+            <h2>Had de overledene kinderen?</h2>
+            <div class="answer-option">
+              <input
+                type="radio"
+                name="optie4"
+                id="kinderen-ja"
+                value="ja"
+                class="trigger"
+                required
+              />
+              <label for="kinderen-ja">Ja</label>
+            </div>
+            <div class="answer-option">
+              <input type="radio" name="optie4" id="kinderen-nee" value="nee" />
+              <label for="kinderen-nee">Nee</label>
+            </div>
+            <div class="conditional-content">
+              <h2>Is één van deze kinderen eerder overleden?</h2>
+              <div class="answer-option">
+                <input
+                  type="radio"
+                  name="optie5"
+                  id="kind-ovl-ja"
+                  value="ja"
+                  class="trigger"
+                />
+                <label for="kind-ovl-ja">Ja</label>
+              </div>
+              <div class="answer-option">
+                <input
+                  type="radio"
+                  name="optie5"
+                  id="kind-ovl-nee"
+                  value="nee"
+                />
+                <label for="kind-ovl-nee">Nee</label>
+              </div>
+              <div class="conditional-content">
+                <h2>Had dit overleden kind zelf kinderen?</h2>
+                <div class="answer-option">
+                  <input
+                    type="radio"
+                    name="optie6"
+                    id="kleinkind-ja"
+                    value="ja"
+                  />
+                  <label for="kleinkind-ja">Ja</label>
+                </div>
+                <div class="answer-option">
+                  <input
+                    type="radio"
+                    name="optie6"
+                    id="kleinkind-nee"
+                    value="nee"
+                  />
+                  <label for="kleinkind-nee">Nee</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs-1d">
+          <legend>Testament</legend>
+          <div class="gesloten-vragen">
+            <h2>Had de overledene een testament?</h2>
+            <div class="answer-option">
+              <input
+                type="radio"
+                name="optie7"
+                id="testament-ja"
+                value="ja"
+                class="trigger"
+                required
+              />
+              <label for="testament-ja">Ja</label>
+            </div>
+            <div class="answer-option">
+              <input
+                type="radio"
+                name="optie7"
+                id="testament-nee"
+                value="nee"
+              />
+              <label for="testament-nee">Nee</label>
+            </div>
+            <div class="conditional-content">
+              <div class="form-group">
+                <label for="not-prot">Protocolnummer</label>
+                <input
+                  type="text"
+                  id="not-prot"
+                  pattern="[0-9]{6}"
+                  inputmode="numeric"
+                  minlength="6"
+                  maxlength="6"
+                  placeholder="Protocolnummer"
+                  title="Voer precies 6 cijfers in"
+                />
+
+                <p class="error-message">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.0498 8V8.1L11.9502 8.1002V8H12.0498Z"
+                      stroke="#D30A0A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Vul 6 cijfers in
+                </p>
+              </div>
+              <div class="form-group">
+                <label for="not-naam">Naam notaris</label>
+                <input
+                  type="text"
+                  id="not-naam"
+                  placeholder="Bijv. J.A."
+                  pattern="[A-Za-z.]*"
+                />
+                <p class="error-message">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.0498 8V8.1L11.9502 8.1002V8H12.0498Z"
+                      stroke="#D30A0A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Vul naam van notaris in
+                </p>
+              </div>
+              <div class="form-group">
+                <label for="vestigingsplaats">Vestigingsplaats</label>
+                <input
+                  type="text"
+                  id="vestigingsplaats"
+                  list="gemeente-opties"
+                  pattern="[A-Za-z \-]*"
+                />
+                <datalist id="gemeente-opties"></datalist>
+                <p class="error-message">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.0498 8V8.1L11.9502 8.1002V8H12.0498Z"
+                      stroke="#D30A0A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Vul vestigingsplaats in
+                </p>
+              </div>
+              <div class="form-group">
+                <label for="test-datum">Datum testament</label>
+                <input type="date" id="test-datum" />
+                <p class="error-message">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.0498 8V8.1L11.9502 8.1002V8H12.0498Z"
+                      stroke="#D30A0A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Vul datum testament in
+                </p>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs-1e">
+          <legend>Iban</legend>
+          <div class="form-group">
+            <label for="iban">IBAN</label>
+            <input
+              type="text"
+              id="iban"
+              placeholder="NL00 ABNA 0123 4567 89"
+              maxlength="22"
+              autocomplete="off"
+            />
+            <p class="error-message">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.0498 8V8.1L11.9502 8.1002V8H12.0498Z"
+                  stroke="#D30A0A"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Vul IBAN in
+            </p>
+          </div>
+        </fieldset>
+        <button type="submit" class="submit-button">Volgende</button>
+      </form>
+    </main>
+  </body>
+  <script src="script.js"></script>
+</html>
