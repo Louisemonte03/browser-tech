@@ -142,9 +142,6 @@ border-color: var(--ns-rood-fout);
 4. **HTML formulier schrijven** — de juiste input types, labels en fieldsets gebruiken voor een toegankelijk formulier
 5. **Invoer blokkeren** — met keypress en preventDefault verkeerde tekens tegenhouden
 
-- **Eind demo video**
-
-
 ### Bronnenlijst
 
 ## Bronnen
