@@ -132,6 +132,19 @@ border-color: var(--ns-rood-fout);
 - **Wat heb ik geleerd?** Hoe je met keypress en preventDefault in javasccript kunt blokkeren dat gebruikers verkeerde tekens kunnen invoeren. Ook heb ik geleerd hoe je met .toUpperCase en .split() invoer automatisch kunt opmaken
 - **Wat ga ik volgende week doen?** Het project is afgerond.
 
+## Tussengesprek aanpassing
+
+### Tooltip op Protocolnummer
+
+Na het tussengesprek heb ik een tooltip toegevoegd aan het veld "Protocolnummer". De tekst is blauw gekleurd zodat het opvalt, en er staat een blauw ℹ-icoontje naast. Als je er met de muis overheen gaat (of op mobiel op tikt), verschijnt er een korte uitleg over wat een protocolnummer is. Op mobiel werkt het via een tap en verdwijnt de tooltip weer als je ergens anders tikt.
+
+Dit heb ik gebouwd met:
+
+- CSS (`:hover` en `:focus` voor desktop)
+- Een `.active` class via JavaScript voor mobiel (tap-gedrag)
+
+---
+
 ### Reflectie alle weken
 
 - **Wat heb ik geleerd?**
@@ -141,10 +154,15 @@ border-color: var(--ns-rood-fout);
 3. **Input masking** — IBAN automatisch opmaken met spaties en de juiste tekens op de juiste plek
 4. **HTML formulier schrijven** — de juiste input types, labels en fieldsets gebruiken voor een toegankelijk formulier
 5. **Invoer blokkeren** — met keypress en preventDefault verkeerde tekens tegenhouden
+6. **Tooltip** — informatieve tooltip bouwen die werkt op zowel desktop (hover/focus) als mobiel (tap)
 
 ### Bronnenlijst
 
 ## Bronnen
+
+### AI-gebruik
+
+- **Claude (Anthropic)** — gebruikt als hulpmiddel bij het schrijven en debuggen van JavaScript. Prompts gericht op: IBAN-opmaak logica, progressive disclosure required-beheer, tooltip tap-gedrag voor mobiel en het opsporen van bugs (zoals de `for`/`id` mismatch op het BSN-veld).
 
 - SVG Repo - Warning icon — https://www.svgrepo.com/vectors/warning/
 - YouTube - Show hide forms — https://www.youtube.com/watch?v=GLkbeOKDxFo

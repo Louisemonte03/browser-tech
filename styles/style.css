@@ -250,26 +250,6 @@ input::placeholder {
    ========================================================================== */
 /* --- MARK: Submitknop 
 */
-.stijling-button {
-  width: 100px;
-  align-items: center;
-  text-align: center;
-  text-decoration: none;
-  background-color: var(--knop-blauw);
-  color: var(--ns-wit);
-  border: none;
-  font-size: var(--ns-font-size-xs);
-  border-radius: var(--radius-border);
-  padding: 12px 24px;
-  font-weight: var(--ns-font-weight-bold);
-  cursor: pointer;
-  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
-  transition: background-color 0.2s;
-}
-
-.stijling-button a:hover {
-  background-color: var(--knop-blauw-donker);
-}
 
 .submit-button {
   display: inline-flex;
@@ -410,4 +390,100 @@ input:user-valid {
 
 .bank-btn:active {
   background-color: #d0d0d0;
+}
+
+/* Tooltip protocolnummer */
+.label-blue {
+  color: var(--ns-blauw);
+  font-weight: 600;
+}
+
+.tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+.tooltip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background-color: var(--ns-blauw);
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1;
+  user-select: none;
+}
+
+.tooltip-box {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--ns-blauw);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 400;
+  width: 220px;
+  line-height: 1.4;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tooltip-box::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--ns-blauw);
+}
+
+.tooltip-wrapper:hover .tooltip-box,
+.tooltip-wrapper:focus .tooltip-box,
+.tooltip-wrapper.active .tooltip-box {
+  display: block;
+}
+
+/* ==========================================================================
+   12. RESPONSIVE - media queries
+   ========================================================================== */
+
+@media (max-width: 600px) {
+  header .intro {
+    padding: 20px 20px 160px 20px;
+  }
+
+  header .intro h1 {
+    font-size: var(--ns-font-size-xl);
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  legend {
+    font-size: var(--ns-font-size-lg);
+  }
+
+  .tooltip-box {
+    left: 0;
+    transform: none;
+    width: 200px;
+  }
+
+  .submit-button {
+    width: 100%;
+    justify-content: center;
+  }
 }

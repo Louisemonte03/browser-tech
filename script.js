@@ -1,4 +1,11 @@
 /* ==========================================================================
+  AI-GEBRUIK
+  Claude (Anthropic) is gebruikt als hulpmiddel bij het schrijven en debuggen
+  van JavaScript. Prompts waren gericht op: IBAN-opmaak logica, progressive
+  disclosure required-beheer en de tooltip mobiel tap-functionaliteit.
+   ========================================================================== */
+
+/* ==========================================================================
   GEMEENTES
    ========================================================================== */
 
@@ -57,7 +64,7 @@ document.getElementById("iban").addEventListener("input", function (e) {
    ========================================================================== */
 
 // Alleen cijfers
-["Bsn", "not-prot"].forEach((id) => {
+["bsn", "not-prot"].forEach((id) => {
   document.getElementById(id).addEventListener("keypress", (e) => {
     if (!/[0-9]/.test(e.key)) e.preventDefault();
   });
@@ -92,5 +99,18 @@ document.querySelectorAll("input.trigger").forEach((trigger) => {
       .forEach((radio) => {
         radio.required = zichtbaar;
       });
+  });
+});
+
+// Tooltip mobiel: tap om te tonen/verbergen
+document.querySelectorAll(".tooltip-wrapper").forEach((tip) => {
+  tip.addEventListener("click", (e) => {
+    e.stopPropagation();
+    tip.classList.toggle("active");
+  });
+});
+document.addEventListener("click", () => {
+  document.querySelectorAll(".tooltip-wrapper.active").forEach((tip) => {
+    tip.classList.remove("active");
   });
 });

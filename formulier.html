@@ -88,7 +88,7 @@
             <label for="bsn">BSN overleden</label>
             <input
               type="text"
-              id="Bsn"
+              id="bsn"
               pattern="[0-9]{9}"
               inputmode="numeric"
               minlength="9"
@@ -322,7 +322,15 @@
             </div>
             <div class="conditional-content">
               <div class="form-group">
-                <label for="not-prot">Protocolnummer</label>
+                <label for="not-prot">
+                  <span class="label-blue">Protocolnummer</span>
+                  <span class="tooltip-wrapper" tabindex="0" aria-label="Meer info over protocolnummer">
+                    <span class="tooltip-icon" aria-hidden="true">ℹ</span>
+                    <span class="tooltip-box" role="tooltip">
+                      Een protocolnummer is een uniek 6-cijferig nummer dat aan een notariële akte wordt toegekend. Je vindt het terug op de akte zelf.
+                    </span>
+                  </span>
+                </label>
                 <input
                   type="text"
                   id="not-prot"
@@ -468,6 +476,6 @@
         <button type="submit" class="submit-button">Volgende</button>
       </form>
     </main>
-  </body>
   <script src="script.js"></script>
+  </body>
 </html>
